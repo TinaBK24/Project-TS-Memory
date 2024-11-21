@@ -21,8 +21,18 @@ const emojiArray = [
   let shuffleEmojiArray = emojiArray.sort(() => (Math.random() > .5 ) ? 1 : -1);
   for(let i = 0; i < emojiArray.length; i++) {
       const gameCard = document.createElement('div') as HTMLDivElement;
-      gameCard.className = "game-card";
-      gameCard.innerHTML = emojiArray[i];
+      gameCard.className = 'game-card';
+
+      const frontFace = document.createElement('div');
+      frontFace.className = 'card__face card__face--front';
+
+      const backFace = document.createElement('div');
+      backFace.className = 'card__face card__face--back';
+
+      backFace.textContent = emojiArray[i];
+
+      gameCard.appendChild(frontFace);
+      gameCard.appendChild(backFace);
       gameBoard.appendChild(gameCard);
   };
   console.log(shuffleEmojiArray);
