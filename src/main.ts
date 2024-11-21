@@ -9,9 +9,42 @@ const newGameBtn = document.querySelector('#new-game-btn') as HTMLButtonElement;
 
 console.log(pairsClicked,pairsGuessed,gameBoard,newGameBtn);
 
-const emojiArray = ["🌭", "🍔","🍟","🍕","🧁","🍭","🍫","🍿","🍩","🍱","🍣","🥤","🌭", "🍔","🍟","🍕","🧁","🍭","🍫","🍿","🍩","🍱","🍣","🥤"];
+let attempts = 0;
+let matches = 0;
+let firstCard: HTMLDivElement | null = null;
+let secondCard: HTMLDivElement | null = null;
 
-let shuffleEmojiArray = emojiArray.sort(() => (Math.random() > .5 ) ? 2 : -1);
+const emojiArray = [
+  "🌭", "🍔","🍟","🍕","🧁","🍭","🍫","🍿","🍩","🍱","🍣","🥤",
+  "🌭", "🍔","🍟","🍕","🧁","🍭","🍫","🍿","🍩","🍱","🍣","🥤"];
+
+  let shuffleEmojiArray = emojiArray.sort(() => (Math.random() > .5 ) ? 1 : -1);
+
+function pairsDisplay(){
+  pairsClicked.textContent = `${attempts}`;
+  pairsGuessed.textContent = `${matches}`;
+}
+
+function checkForMatch(){
+  if(firstCard && secondCard){
+    if(firstCard.textContent === secondCard.textContent){
+      matches++;
+      firstCard.classList.add('matched');
+      secondCard.classList.add('matched');
+      firstCard = null;
+      secondCard = null
+    } else {
+    }
+  }
+  pairsDisplay()
+}
+
+function resetCard(isMatch: boolean){
+  firstCard = null;
+  secondCard = null
+}
+
+
 for(let i = 0; i < emojiArray.length; i++) {
     const gameCard = document.createElement('div') as HTMLDivElement;
     gameCard.className = "game-card";
