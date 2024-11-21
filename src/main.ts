@@ -13,6 +13,7 @@ let attempts = 0;
 let matches = 0;
 let firstCard: HTMLDivElement | null = null;
 let secondCard: HTMLDivElement | null = null;
+let isCheck = false;
 
 const emojiArray = [
   "🌭", "🍔","🍟","🍕","🧁","🍭","🍫","🍿","🍩","🍱","🍣","🥤",
@@ -44,6 +45,7 @@ function pairsDisplay(){
 
 function checkForMatch(){
   if(firstCard && secondCard){
+    isCheck = true
     if(firstCard.textContent === secondCard.textContent){
       matches++;
       firstCard.classList.add('matched');
@@ -51,7 +53,8 @@ function checkForMatch(){
       console.log("first = second");
       
       firstCard = null;
-      secondCard = null
+      secondCard = null;
+      isCheck = false
     } else {
       setTimeout(resetCard, 2000)
     }
@@ -60,7 +63,20 @@ function checkForMatch(){
   }
 }
 
-function handleCardClick(card: HTMLDivElement){
+function resetCard(){
+  if(firstCard && secondCard){
+    firstCard.classList.remove('visible');
+    secondCard.classList.remove('visible');
+  }
+  firstCard = null;
+  secondCard = null;
+  isCheck = false
+}
+
+async function handleCardClick(card: HTMLDivElement){
+  if(isCheck){
+    return
+  }
   if (card === firstCard) {
     return console.log("Diese Karte wurde bereits ausgewählt.");
   }
@@ -85,19 +101,4 @@ function handleCardClick(card: HTMLDivElement){
 const allGameCards = document.querySelectorAll('.game-card');
 allGameCards.forEach(card => {
   card.addEventListener('click', () => handleCardClick(card as HTMLDivElement))
-})
-
-function resetCard(){
-  if(firstCard && secondCard){
-    firstCard.classList.remove('visible');
-    secondCard.classList.remove('visible');
-  }
-  firstCard = null;
-  secondCard = null
-}
-
-
-
-newGameBtn?.addEventListener('click', () => {
-
 })

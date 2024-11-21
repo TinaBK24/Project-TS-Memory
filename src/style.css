@@ -45,6 +45,11 @@ button:hover {
   background-color: darkred;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .game-card {
   position: relative;
   width: 100%;
