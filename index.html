@@ -1,13 +1,27 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Game</title>
+</head>
+
+<body>
+  <main>
+    <section>
+      <h1>Memory Game</h1>
+      <div>
+        <p>Pairs clicked: <span id="pairsClicked">0</span></p>
+        <p>Pairs guessed: <span id="pairsGuessed">0</span></p>
+      </div>
+    </section>
+    <section id="game-board"></section>
+    <button>Neues Spiel</button>
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
