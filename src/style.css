@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Soft Marshmallow";
+  src: url("./fonts/SoftMarshmallow.otf");
+};
 
 body {
   font-family: Arial, sans-serif;
@@ -43,7 +47,8 @@ h1 {
   color: crimson;
   font-weight: 900;
   font-family: Chalkboard;
-  text-shadow: 1px 1px 2px rgb(11, 172, 172);
+ /*  font-family: "Soft Marshmallow"; */
+  text-shadow: 1px 3px 2px rgb(11, 172, 172);
 }
 
 .pair-count-wrapper {
@@ -147,4 +152,62 @@ a {
   background-color: rgba(105, 90, 205, 0.932);
   transform: rotateY(180deg);
   box-shadow: 0 4px 6px crimson;/* shadow color of card front color*/
+}
+
+/* winner pop up */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  background-color: rgb(11, 172, 172, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-content {
+  background-color: lightgoldenrodyellow;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 3px solid rgb(217,77,105);
+}
+
+.overlay-content h2 {
+  /* font-size: 2rem;
+  margin-bottom: 10px; */
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: crimson;
+  font-weight: 900;
+  font-family: Chalkboard;
+ /*  font-family: "Soft Marshmallow"; */
+  text-shadow: 1px 1px 2px rgb(11, 172, 172);
+}
+
+.overlay-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#play-again-btn {
+  padding: 10px 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#play-again-btn:hover {
+  background-color: darkred;
 }
