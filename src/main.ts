@@ -32,7 +32,7 @@ const emojiArray = [
       const backFace = document.createElement('div');
       backFace.className = 'card__face card__face--back'; // Rückseite der Karte.
 
-      backFace.textContent = emojiArray[i];
+      backFace.innerHTML = emojiArray[i]
 
       gameCard.appendChild(frontFace);
       gameCard.appendChild(backFace);
