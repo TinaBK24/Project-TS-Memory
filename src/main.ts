@@ -5,6 +5,9 @@ const pairsGuessed = document.querySelector('#pairsGuessed') as HTMLElement;
 
 const gameBoard = document.querySelector('#game-board') as HTMLDivElement;
 
+//für winner pop up
+const overlay = document.querySelector('#overlay') as HTMLDivElement; 
+const playAgainBtn = document.querySelector('#play-again-btn') as HTMLButtonElement;
 
 // console.log(pairsClicked,pairsGuessed,gameBoard,newGameBtn);
 
@@ -41,6 +44,8 @@ function pairsDisplay(){
   pairsClicked.textContent = `${attempts}`;
   pairsGuessed.textContent = `${matches}`;
   updatePairsGuessedColor();
+  //test für winner pop up --------------------
+  checkGameEnd();
 }
 
 //Funktion für Farbwechsel sobald ein Paar gefunden wurde
@@ -51,6 +56,14 @@ function updatePairsGuessedColor(){
         pairsGuessed.style.color = '';
     }
 }
+
+//Funktion prüft das Spielende zu einblenden von winner pop up 
+function checkGameEnd () {
+    if(matches === 12) {
+        overlay.classList.remove('hidden');
+    }
+}
+
 
 function checkForMatch(){
   if(firstCard && secondCard){
@@ -111,3 +124,10 @@ const allGameCards = document.querySelectorAll('.game-card');
 allGameCards.forEach(card => {
   card.addEventListener('click', () => handleCardClick(card as HTMLDivElement))
 }); // Fügt allen Karten einen Klick-Event-Listener hinzu.
+
+
+//winner pop up - new game button 
+
+playAgainBtn?.addEventListener('click', () => {
+    window.location.reload();
+})
