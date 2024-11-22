@@ -27,6 +27,7 @@ main {
   max-width: 1200px;
   text-align: center;
   margin:  6% ;  
+  padding: 20px;
   position: relative; 
   z-index: 1; /* Legt den Hauptinhalt vor den Hintergrund */
   background-color: lightgoldenrodyellow;
@@ -36,10 +37,13 @@ main {
 }
 
 h1 {
-  font-size: 2.8rem;
+  /* font-size: 2.8rem; */
+  font-size: 4.4rem;
   margin-bottom: 10px;
   color: crimson;
-  font-weight: 800;
+  font-weight: 900;
+  font-family: Chalkboard;
+  text-shadow: 1px 1px 2px rgb(11, 172, 172);
 }
 
 .pair-count-wrapper {
@@ -54,9 +58,14 @@ p{
   font-size: 2.2rem;
   font-weight: 800;
   text-shadow: 1px 1px 2px crimson;
+  font-family: Comic Sans MS;
 }
 span{
   color: crimson;
+}
+.pairsGuessed{
+  color: rgb(11, 172, 172); /* change when bigger than 0? */
+  font-weight: 600;
 }
 section {
   margin-bottom: 20px;
@@ -75,11 +84,12 @@ section {
 
 button {
   padding: 10px 20px;
-  background-color: crimson;
+  background-color: rgb(217, 77, 105);
   color: white;
   border: 2px solid  rgb(11, 172, 172);
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
   margin: 3% 0 6% 0;
   /* box-shadow: 6px 6px 10px rgba(0, 128, 128, 0.5); */
@@ -128,9 +138,13 @@ a {
 
 .card__face--front {
   background-color: rgba(220, 20, 60, 0.88);
+  /* just checking */
+  border: 2px solid  rgb(11, 172, 172);
+  box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4); /* shadow color of card back color*/
 }
 
 .card__face--back {
-  background-color: slateblue;
+  background-color: rgba(105, 90, 205, 0.932);
   transform: rotateY(180deg);
+  box-shadow: 0 4px 6px crimson;/* shadow color of card front color*/
 }

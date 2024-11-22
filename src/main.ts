@@ -41,6 +41,16 @@ const emojiArray = [
 function pairsDisplay(){
   pairsClicked.textContent = `${attempts}`;
   pairsGuessed.textContent = `${matches}`;
+  updatePairsGuessedColor();
+}
+
+//Funktion für Farbwechsel sobald ein Paar gefunden wurde
+function updatePairsGuessedColor(){
+    if(matches > 0){
+        pairsGuessed.style.color = 'rgb(11, 172, 172)';
+    } else {
+        pairsGuessed.style.color = '';
+    }
 }
 
 function checkForMatch(){
